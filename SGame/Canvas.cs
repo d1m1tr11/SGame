@@ -16,12 +16,14 @@ namespace SGame
         {
             Width = 50;
             Height = 25;
+            Console.CursorVisible = false;
         }
 
 
         public void DrawCanvas()
         {
             Console.Clear();
+
 
             for (int i = 0; i <= Width; i++)
             {

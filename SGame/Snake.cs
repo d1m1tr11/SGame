@@ -6,7 +6,37 @@ using System.Threading.Tasks;
 
 namespace SGame
 {
-    internal class Snake
+    public class Snake
     {
+        ConsoleKeyInfo keyInfo = new ConsoleKeyInfo();
+        char key = 'w';
+
+        public int X { get; set; }
+        public int Y { get; set; }
+
+        public Snake()
+        {
+            X = 25;
+            Y = 15;
+        }
+
+        public void DrawSnake()
+        {
+            Console.SetCursorPosition(X, Y);
+            Console.WriteLine("■");
+        }
+
+        public void Input()
+        {
+            if (Console.KeyAvailable)
+            {
+                key = keyInfo.KeyChar;
+            }
+        }
+
+
+
     }
+
+
 }
