@@ -7,8 +7,8 @@ var snake = new Snake();
 
 while (!finished)
 {
-
     canvas.DrawCanvas();
     snake.DrawSnake();
-    Console.Read();
+    snake.MoveSnake();
+    //Console.Read();
 }
