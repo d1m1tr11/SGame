@@ -9,6 +9,9 @@ while (!finished)
 {
     canvas.DrawCanvas();
     snake.DrawSnake();
+    snake.Input();
     snake.MoveSnake();
-    //Console.Read();
+    
+    
+
 }

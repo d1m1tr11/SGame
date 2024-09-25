@@ -42,6 +42,7 @@ namespace SGame
         {
             if (Console.KeyAvailable)
             {
+                keyInfo = Console.ReadKey(true);
                 key = keyInfo.KeyChar;
             }
         }
@@ -86,15 +87,22 @@ namespace SGame
                 Y++;
             }
             
-            else if(direction == 'a')
+            else if(direction == 'l')
             {
                 X--;
             }
             
-            else if(direction == 'd')
+            else if(direction == 'r')
             {
                 X++;
             }
+
+            
+            snakeBody.Add(new Position(X, Y));
+            snakeBody.RemoveAt(0);
+            Thread.Sleep(200);
+
+
         }
 
 
