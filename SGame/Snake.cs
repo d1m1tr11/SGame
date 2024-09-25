@@ -100,7 +100,7 @@ namespace SGame
             
             snakeBody.Add(new Position(X, Y));
             snakeBody.RemoveAt(0);
-            Thread.Sleep(200);
+            Thread.Sleep(250);
 
 
         }
