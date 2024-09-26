@@ -100,11 +100,24 @@ namespace SGame
             
             snakeBody.Add(new Position(X, Y));
             snakeBody.RemoveAt(0);
-            Thread.Sleep(250);
+            Thread.Sleep(100);
 
 
         }
 
+
+        public void SnakeGrow(Position food, Food f)
+        {
+            Position sn = snakeBody[snakeBody.Count - 1];
+
+            if(sn.X == food.X && sn.Y == food.Y)
+            {
+                snakeBody.Add(new Position(X, Y));
+                f.FoodNewLocation();
+            }
+
+
+        }
 
     }
 
