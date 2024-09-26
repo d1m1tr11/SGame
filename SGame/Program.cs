@@ -19,10 +19,21 @@ public class Program
             food.DrawFood();
             snake.Input();
             snake.MoveSnake();
-            snake.SnakeGrow(food.FoodLocation(),food);
+            snake.Eat(food.FoodLocation(),food);
+            snake.IsDead();
+            snake.HitWall(canvas);
 
-
+            if (snake.isDead == true)
+            {
+                finished = true;
+            }
 
         }
+
+        Console.Clear();
+        Console.WriteLine("SORRY YOU LOST");
+
+
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -100,17 +101,17 @@ namespace SGame
             
             snakeBody.Add(new Position(X, Y));
             snakeBody.RemoveAt(0);
-            Thread.Sleep(100);
+            Thread.Sleep(80);
 
 
         }
 
 
-        public void SnakeGrow(Position food, Food f)
+        public void Eat(Position food, Food f)
         {
-            Position sn = snakeBody[snakeBody.Count - 1];
+            Position head = snakeBody[snakeBody.Count - 1];
 
-            if(sn.X == food.X && sn.Y == food.Y)
+            if(head.X == food.X && head.Y == food.Y)
             {
                 snakeBody.Add(new Position(X, Y));
                 f.FoodNewLocation();
@@ -118,6 +119,39 @@ namespace SGame
 
 
         }
+
+        public bool isDead = false;
+
+        public void IsDead()
+        {
+            Position head = snakeBody[snakeBody.Count - 1];
+
+            for(int i = 0; i < snakeBody.Count - 2; i++)
+            {
+                Position sb = snakeBody[i];
+                
+                if(head.X == sb.X && head.Y == sb.Y)
+                {   
+                    isDead = true;
+                }
+
+            }
+
+
+        }
+
+        public void HitWall(Canvas canvas)
+        {
+            Position head = snakeBody[snakeBody.Count - 1];
+
+            if(head.X >= canvas.Width || head.X <= 0 || head.Y >= canvas.Height || head.Y <= 0)
+            {
+                isDead = true;
+            }
+
+        }
+
+
 
     }
 
